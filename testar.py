@@ -1,23 +1,9 @@
-"""
-Testa um agente do LangGraph com conversas ficticias e gera nota.
-Edite as 3 variaveis abaixo e rode: python testar.py
-"""
 import os, json
 from dotenv import load_dotenv
 from openai import OpenAI
 from langgraph_sdk import get_sync_client
 
 load_dotenv()
-
-# =========== EDITE AQUI ===========
-ESCOPO = """
-Assistente de suporte que ajuda cliente a participar de um sorteio.
-Pode cadastrar o cliente no sorteio, confirmar participacao e tirar duvidas sobre o regulamento.
-Nao fala de outros assuntos fora do sorteio.
-"""
-ASSISTANT_ID = "814f9860-e30f-44c3-a3d2-2102cc3c8c83"
-LANGGRAPH_URL = "https://claudia-e86fe2e91a435c59a69e1a70599e2914.us.langgraph.app"
-# ==================================
 
 gpt = OpenAI()
 alvo = get_sync_client(url=LANGGRAPH_URL, api_key=os.environ["LANGSMITH_API_KEY"])

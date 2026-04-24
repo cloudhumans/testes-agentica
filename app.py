@@ -9,7 +9,7 @@ load_dotenv()
 
 LANGGRAPH_URL = "https://claudia-e86fe2e91a435c59a69e1a70599e2914.us.langgraph.app"
 
-st.set_page_config(page_title="QA de Agentes · CloudHumans", page_icon="🤖", layout="wide")
+st.set_page_config(page_title="Testes de Agêntica", page_icon="🤖", layout="wide")
 
 st.markdown("""
 <style>
@@ -24,7 +24,6 @@ html, body, .stApp, [data-testid="stAppViewContainer"], [data-testid="stHeader"]
 [data-testid="stHeader"] { background: transparent !important; }
 .stApp * { color-scheme: light !important; }
 
-/* Container centralizado — 60% width */
 #MainMenu, footer, header { visibility: hidden; }
 [data-testid="stToolbar"],
 [data-testid="stDecoration"],
@@ -37,7 +36,6 @@ html, body, .stApp, [data-testid="stAppViewContainer"], [data-testid="stHeader"]
     margin: 0 auto !important;
 }
 
-/* Labels */
 label, [data-testid="stWidgetLabel"] p {
     color: #1a1a2e !important;
     font-weight: 500 !important;
@@ -53,14 +51,12 @@ h1, h2, h3, h4, h5, h6 { color: #1a1a2e !important; }
     border-radius: 8px !important;
 }
 
-/* Layout principal */
 .main-layout {
     display: flex;
     height: 100vh;
     overflow: hidden;
 }
 
-/* Sidebar esquerda */
 .sidebar-left {
     width: 260px;
     background: #1a1a2e;
@@ -78,7 +74,6 @@ h1, h2, h3, h4, h5, h6 { color: #1a1a2e !important; }
     gap: 8px;
 }
 
-/* Área de conteúdo */
 .content-area {
     flex: 1;
     display: flex;
@@ -87,7 +82,6 @@ h1, h2, h3, h4, h5, h6 { color: #1a1a2e !important; }
     background: #f5f6fa;
 }
 
-/* Header */
 .top-header {
     background: white;
     padding: 16px 32px;
@@ -103,7 +97,6 @@ h1, h2, h3, h4, h5, h6 { color: #1a1a2e !important; }
     margin: 0;
 }
 
-/* Cards de input */
 .input-card {
     background: white;
     border-radius: 12px;
@@ -112,7 +105,6 @@ h1, h2, h3, h4, h5, h6 { color: #1a1a2e !important; }
     box-shadow: 0 1px 4px rgba(0,0,0,0.07);
 }
 
-/* Botão principal (▶ Iniciar testes) */
 .stButton > button {
     background: #FF6B00 !important;
     color: white !important;
@@ -128,7 +120,6 @@ h1, h2, h3, h4, h5, h6 { color: #1a1a2e !important; }
     background: #e05e00 !important;
 }
 
-/* Pills de número — override para ficarem compactos */
 [data-testid="column"] .stButton > button {
     background: white !important;
     color: #888 !important;
@@ -146,7 +137,6 @@ h1, h2, h3, h4, h5, h6 { color: #1a1a2e !important; }
     background: #fff3e8 !important;
 }
 
-/* Inputs */
 .stTextInput > div > div > input,
 .stTextArea > div > div > textarea {
     border: 1px solid #e0e0e0 !important;
@@ -160,14 +150,12 @@ h1, h2, h3, h4, h5, h6 { color: #1a1a2e !important; }
     box-shadow: 0 0 0 2px rgba(255,107,0,0.15) !important;
 }
 
-/* Labels */
 .stTextInput label, .stTextArea label {
     font-weight: 500 !important;
     color: #1a1a2e !important;
     font-size: 13px !important;
 }
 
-/* Pill number selector */
 .n-selector {
     display: flex;
     gap: 8px;
@@ -208,7 +196,6 @@ h1, h2, h3, h4, h5, h6 { color: #1a1a2e !important; }
     margin-bottom: 8px;
 }
 
-/* Card de conversa */
 .conversa-card {
     background: white;
     border-radius: 12px;
@@ -228,7 +215,6 @@ h1, h2, h3, h4, h5, h6 { color: #1a1a2e !important; }
     margin-bottom: 16px;
 }
 
-/* Balões de chat */
 .chat-wrap { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
 
 .bubble-user {
@@ -263,7 +249,6 @@ h1, h2, h3, h4, h5, h6 { color: #1a1a2e !important; }
     text-align: right;
 }
 
-/* Badge de status */
 .badge {
     display: inline-block;
     padding: 4px 10px;
@@ -276,7 +261,6 @@ h1, h2, h3, h4, h5, h6 { color: #1a1a2e !important; }
 .badge-blue  { background: #e3f2fd; color: #1565c0; }
 .badge-gray  { background: #f0f0f0; color: #555; }
 
-/* Nota */
 .nota-box {
     display: flex;
     align-items: center;
@@ -294,7 +278,6 @@ h1, h2, h3, h4, h5, h6 { color: #1a1a2e !important; }
 }
 .nota-label { font-size: 13px; color: #888; }
 
-/* Resumo */
 .resumo-card {
     background: white;
     color: #1a1a2e;
@@ -308,13 +291,10 @@ h1, h2, h3, h4, h5, h6 { color: #1a1a2e !important; }
 .resumo-nota { font-size: 56px; font-weight: 800; color: #FF6B00; }
 .resumo-label { font-size: 14px; color: #888; margin-top: 4px; }
 
-/* Info/warning boxes */
 .stAlert { border-radius: 8px !important; font-size: 13px !important; }
 
-/* Divider */
 hr { border: none; border-top: 1px solid #e8e8e8; margin: 24px 0; }
 
-/* Persona badge */
 .persona-pill {
     background: #fff3e8;
     border: 1px solid #ffd0a0;
@@ -329,7 +309,6 @@ hr { border: none; border-top: 1px solid #e8e8e8; margin: 24px 0; }
 </style>
 """, unsafe_allow_html=True)
 
-# Header com logo
 import base64, pathlib
 
 _logo_path = pathlib.Path(__file__).parent / "logo.png"
@@ -337,7 +316,6 @@ if _logo_path.exists():
     _logo_b64 = base64.b64encode(_logo_path.read_bytes()).decode()
     _logo_html = f'<img src="data:image/png;base64,{_logo_b64}" style="height:48px;width:auto;" />'
 else:
-    # fallback: nuvem SVG até o arquivo logo.png ser adicionado
     _logo_html = """
     <svg width="52" height="44" viewBox="0 0 52 44" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="14" cy="30" r="13" fill="#FDDBC7"/>
@@ -354,7 +332,7 @@ st.markdown(f"""
       cloudhumans
     </div>
     <div style="font-size:11px;color:#888;font-weight:500;letter-spacing:1px;text-transform:uppercase;">
-      Testes da Agêntica
+      Testes de Agêntica
     </div>
   </div>
 </div>
@@ -379,7 +357,6 @@ if "n_conversas" not in st.session_state:
 
 n_conversas = st.session_state.n_conversas
 
-# CSS dinâmico que pinta o pill ativo de laranja
 st.markdown(f"""
 <style>
 [data-testid="stHorizontalBlock"] [data-testid="column"]:nth-child({n_conversas}) .stButton > button {{
@@ -594,7 +571,6 @@ for dados in resultados_raw:
 
     resultados.append(nota)
 
-# Melhorias gerais com base em todas as conversas
 with st.spinner("Gerando análise geral..."):
     todas_transcricoes = "\n\n---\n\n".join(
         f"Conversa {d['indice']+1} (nota {d['avaliacao'].get('nota',0)}):\n" +
